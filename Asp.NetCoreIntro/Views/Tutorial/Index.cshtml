@@ -1,0 +1,21 @@
+﻿@{
+
+    var tutorials = ViewData["tutorials"] as List<Asp.NetCoreIntro.Models.Tutorial>;
+
+}
+
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Description</td>
+    </tr>
+    @foreach (var tutorial in tutorials )
+    {
+        <tr>
+            <td>@tutorial.Id</td>
+            <td>@tutorial.Name</td>
+            <td>@tutorial.Description</td>
+        </tr>
+    }
+</table>
