@@ -22,11 +22,6 @@ namespace Asp.NetCoreIntro.Controllers
             //        new Tutorial { Id = 2, Name = "Asp.Net Core" , Description = "Asp.Net Core Tutorial"}
             //    };
 
-            //    title = "Tutorial List";
-            //    //ViewData["tutorials"] = tutorials;
-
-            //    ViewBag.Tutorials = tutorials;
-            //    ViewData["name"] = "All about .Net...";
 
 
             var newModel = new TutorialViewModel
@@ -40,12 +35,12 @@ namespace Asp.NetCoreIntro.Controllers
 
                 },
 
-                title = "new title ",
+                title = "new title ", 
             };
 
 
             //return View();
-            return View(newModel);
+    
         }
     }
 }
