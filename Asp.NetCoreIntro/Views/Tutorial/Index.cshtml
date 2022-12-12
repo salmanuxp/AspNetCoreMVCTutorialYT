@@ -1,8 +1,10 @@
-﻿@{
+﻿
+@model Asp.NetCoreIntro.ViewModels.TutorialViewModel
 
-    var tutorials = ViewData["tutorials"] as List<Asp.NetCoreIntro.Models.Tutorial>;
-
-}
+<h1>
+    @Model.title
+</h1>
+<h2> @ViewBag.name</h2>
 
 <table class="table">
     <tr>
@@ -10,12 +12,11 @@
         <td>Name</td>
         <td>Description</td>
     </tr>
-    @foreach (var tutorial in tutorials )
-    {
+
         <tr>
-            <td>@tutorial.Id</td>
-            <td>@tutorial.Name</td>
-            <td>@tutorial.Description</td>
+            <td>@Model.tutorial.Id</td>
+            <td>@Model.tutorial.Name</td>
+            <td>@Model.tutorial.Description</td>
         </tr>
-    }
+
 </table>
