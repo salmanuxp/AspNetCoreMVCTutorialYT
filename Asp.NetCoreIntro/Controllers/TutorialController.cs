@@ -40,6 +40,8 @@ namespace Asp.NetCoreIntro.Controllers
 
 
             //return View();
+
+            return View(newModel);  
     
         }
     }
