@@ -29,5 +29,24 @@ namespace Asp.NetCoreIntro.Controllers
 
     
         }
+        [HttpGet]
+        public IActionResult CreateTutorial()
+        {
+
+
+            return View();
+
+
+        }
+        [HttpPost]
+        public IActionResult CreateTutorial(Tutorial tutorial)
+        {
+            Tutorial newTutorial = _tutorialRepository.Add(tutorial);
+
+            return RedirectToAction("Index");
+
+
+        }
+
     }
 }
