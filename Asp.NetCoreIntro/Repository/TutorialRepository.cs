@@ -1,18 +1,16 @@
-﻿using Asp.NetCoreIntro.Models;
+﻿using Asp.NetCoreIntro.Context;
+using Asp.NetCoreIntro.Models;
 
 namespace Asp.NetCoreIntro.Repository
 {
     public class TutorialRepository : ITutorialRepository
     {
-        private List<Tutorial> _tutorials;
-        public TutorialRepository() {
+        //private List<Tutorial> _tutorials;
 
+        private readonly TutorialDbContext _context;
+        public TutorialRepository(TutorialDbContext context) {
 
-             _tutorials = new List<Tutorial>
-               {
-                   new Tutorial { Id = 1, Name = "C#", Description = "C# Tutorial"},
-                   new Tutorial { Id = 2, Name = "Asp.Net Core" , Description = "Asp.Net Core Tutorial"}
-                };
+                _context= context;
 
 
         }
@@ -34,7 +32,7 @@ namespace Asp.NetCoreIntro.Repository
         }
 
         public IEnumerable<Tutorial> GetAll() {
-            return _tutorials;
+            return _context.Tutorials;
         }
 
     }

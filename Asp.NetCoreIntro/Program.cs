@@ -1,11 +1,18 @@
+using Asp.NetCoreIntro.Context;
 using Asp.NetCoreIntro.Repository;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<ITutorialRepository, TutorialRepository>();
 
+//Register DbContext
+
+var connectionString = builder.Configuration.GetConnectionString("TutorialDbConnection");
+builder.Services.AddDbContext<TutorialDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<ITutorialRepository, TutorialRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
