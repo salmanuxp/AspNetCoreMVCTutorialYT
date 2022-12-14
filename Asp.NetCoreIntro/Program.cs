@@ -1,7 +1,10 @@
- var builder = WebApplication.CreateBuilder(args);
+using Asp.NetCoreIntro.Repository;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ITutorialRepository, TutorialRepository>();
 
 var app = builder.Build();
 
