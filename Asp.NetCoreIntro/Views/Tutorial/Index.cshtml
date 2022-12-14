@@ -1,12 +1,16 @@
 ﻿@model IEnumerable<Asp.NetCoreIntro.Models.Tutorial>
 
     <a class="text-light btn btn-primary mt-3" asp-area="" asp-controller="Tutorial" asp-action="CreateTutorial">Add New Tutorial</a>
-
+@{
+    ViewBag.Title = "Tutorials";
+}
 <table class="table">
     <tr>
         <td>Id</td>
         <td>Name</td>
         <td>Description</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
 
     @foreach (var tutorial in Model)
@@ -15,6 +19,8 @@
             <td>@tutorial.Id</td>
             <td>@tutorial.Name</td>
             <td>@tutorial.Description</td>
+            <td><a asp-controller="Tutorial" asp-action="EditTutorial" asp-route-id="@tutorial.Id" class="text-light btn btn-primary">Edit</a></td>
+            <td><a asp-controller="Tutorial" asp-action="DeleteTutorial" asp-route-id="@tutorial.Id" class="text-light btn btn-danger">Delete</a></td>
         </tr>
 
     }

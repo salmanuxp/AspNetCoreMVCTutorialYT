@@ -21,16 +21,25 @@ namespace Asp.NetCoreIntro.Repository
             return tutorial;
         }
 
-        public Tutorial Update(Tutorial tutorial) {
-            throw new NotImplementedException();
+        public Tutorial Update(Tutorial tutorialModified) {
+            _context.Update(tutorialModified);
+            _context.SaveChanges();
+            return tutorialModified;
+        }
+          
+        public Tutorial Delete(int Id) {
+            Tutorial tutorial = _context.Tutorials.Find(Id);
+            if (tutorial != null)
+            {
+                _context.Tutorials.Remove(tutorial);
+                _context.SaveChanges();
+               
+            }
+            return tutorial;
         }
 
-        public Tutorial Delete(Tutorial tutorial) {
-            throw new NotImplementedException();
-        }
-
-        public Tutorial GetTutorial(Tutorial tutorial) {
-            throw new NotImplementedException();
+        public Tutorial GetTutorial(int Id) { 
+            return _context.Tutorials.Find(Id);
         }
 
         public IEnumerable<Tutorial> GetAll() {

@@ -48,5 +48,39 @@ namespace Asp.NetCoreIntro.Controllers
 
         }
 
+        // update
+
+        [HttpGet]
+        public IActionResult EditTutorial(int id)
+        {
+
+            Tutorial tutorial = _tutorialRepository.GetTutorial(id);
+            return View(tutorial);
+
+
+        }
+        [HttpPost]
+        public IActionResult EditTutorial(Tutorial modifiedData)
+        {
+            Tutorial tutorial = _tutorialRepository.GetTutorial(modifiedData.Id);
+            tutorial.Name= modifiedData.Name;
+            tutorial.Description= modifiedData.Description;
+            Tutorial updatedTutorial = _tutorialRepository.Update(tutorial); 
+
+            return RedirectToAction("Index");
+
+
+        }
+
+
+        public IActionResult DeleteTutorial(int Id)
+        {
+            Tutorial deletedTutorial = _tutorialRepository.Delete(Id);
+
+            return RedirectToAction("Index");
+
+
+        }
+
     }
 }

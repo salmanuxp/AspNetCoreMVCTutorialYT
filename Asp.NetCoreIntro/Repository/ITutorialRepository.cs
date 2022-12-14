@@ -7,11 +7,11 @@ namespace Asp.NetCoreIntro.Repository
 
         Tutorial Add(Tutorial tutorial);
 
-        Tutorial Update (Tutorial tutorial);
+        Tutorial Update (Tutorial modifiedTutorial);
 
-        Tutorial Delete(Tutorial tutorial); 
+        Tutorial Delete(int Id); 
 
-        Tutorial GetTutorial(Tutorial tutorial);    
+        Tutorial GetTutorial(int Id);    
 
         IEnumerable<Tutorial> GetAll();
     }
